@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 const fs = require('fs');
 const request = require('request')
 const filenamify = require('filenamify');
@@ -33,7 +34,7 @@ else if (type === 'folder') {
         .getFolder(url)
         .catch(err => console.log(`${chalk.grey("An error occured:")} ${chalk.red(err)}.`))
         .then(videos => {
-            console.log(chalk.grey("Found ") + chalk.blue(videos.length + " videos.") + chalk.grey("."))
+            console.log(chalk.grey("Found ") + chalk.blue(videos.length + " videos") + chalk.grey("."))
             downloadSequentially(videos)
         })
 }

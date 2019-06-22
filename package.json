@@ -2,7 +2,10 @@
   "name": "cdad",
   "version": "1.0.0",
   "description": "Download entire folders from CDA.pl",
-  "main": "index.js",
+  "main": "cda.js",
+  "bin": {
+    "cdad": "cli.js"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
