@@ -1,0 +1,22 @@
+{
+  "name": "cdad",
+  "version": "1.0.0",
+  "description": "Download entire folders from CDA.pl",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/irth/cdad.git"
+  },
+  "author": "irth",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/irth/cdad/issues"
+  },
+  "homepage": "https://github.com/irth/cdad#readme",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.3"
+  }
+}
