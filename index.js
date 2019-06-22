@@ -49,8 +49,21 @@ function getVideoData(id, quality) {
     });
 }
 
-const video = "https://www.cda.pl/video/<id>?wersja=720p"
-const id = idFromUrl(video)
-getAvailableQualities(id)
-    .then(qualities => getVideoData(id, qualities.last()))
-    .then(data => console.log(data))
+function videoInfoFromThumb(wrapper) {
+    $ = wrapper.find.bind(wrapper)
+    return {
+        id: idFromUrl($("a").attr('href')),
+        url: 'https://www.cda.pl' + $("a").attr('href'),
+        thumb: $("img.thumb").attr('src'),
+        title: $(".link-title-visit").text(),
+        duration: $(".time-inline").text()
+    }
+}
+
+function getFolder(folderUrl) {
+    return fetchUrl(folderUrl).then(
+        $ => $(`[data-foldery_id=${idFromUrl(folderUrl)}] .thumbnail`)
+            .map((_, el) => videoInfoFromThumb($(el)))
+            .get()
+    )
+}
